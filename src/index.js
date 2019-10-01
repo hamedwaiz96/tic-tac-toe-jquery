@@ -6,5 +6,6 @@ const Game = require('./game.js');
     let game = new Game($grid);
     let view = new View(game, $grid);
     view.setupBoard();
-    game.playMove();
+    view.bindEvents();
+    // game.playMove();
   });

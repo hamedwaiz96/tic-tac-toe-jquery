@@ -45,3 +45,7 @@ h1 {
   display: flex;
 
 }
+
+.button {
+  width: 100%;
+}

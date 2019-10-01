@@ -1,7 +1,8 @@
 class View {
-  constructor(game, $el) {
+  constructor(game, $el, body) {
   	this.$el = $el;
   	this.game = game;
+    this.body = body;
   }
 
   bindEvents() {
@@ -17,7 +18,6 @@ class View {
         let row = $li.data('pos')[0];
         let col = $li.data('pos')[1];
         board.game.grid[row][col] = board.game.mark;
-        console.log(board.game.grid);
         if (board.game.won() !== false){
           let winner = board.game.won();
           alert(`winner is ${winner}`)
@@ -28,6 +28,10 @@ class View {
         }
         board.game.switch();
       }
+    }))
+    this.body.on('click', '.button', (e => {
+      e.preventDefault();
+      board.reset();
     }))
   }
 
